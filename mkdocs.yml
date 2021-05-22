@@ -1,0 +1,21 @@
+site_name: DragonIK Documentation
+theme:
+  logo: Assets/dragonik_icon.png
+  name: material
+  palette:
+    scheme: default
+    primary: black
+  font:
+    text: Oxygen
+  features:
+    - navigation.expand
+    - navigation.tabs
+    - toc.integrate
+    - navigation.sections
+
+  
+  
+copyright: Copyright &copy; 2021 Eternal Monke Games
+  
+markdown_extensions:
+  - attr_list

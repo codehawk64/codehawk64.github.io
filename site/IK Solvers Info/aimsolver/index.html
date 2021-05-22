@@ -1,0 +1,1283 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Dragon Aim Look Solver - DragonIK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Oxygen";--md-code-font-family:""}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dragon-aim-look-solver" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DragonIK Documentation" class="md-header__button md-logo" aria-label="DragonIK Documentation" data-md-component="logo">
+      
+  <img src="../../Assets/dragonik_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DragonIK Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dragon Aim Look Solver
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Introduction
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../GettingStarted/" class="md-tabs__link">
+      Getting Started
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Aiming%20IK%20Tutorials/e-aimsolver/" class="md-tabs__link">
+        Aiming IK Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Foot%20placement%20IK%20Tutorials/Terrain_Solving/" class="md-tabs__link">
+        Foot placement IK Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        IK Solvers Info
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Tips%20%26%20Tricks/UsefulTips/" class="md-tabs__link">
+        Tips & Tricks
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DragonIK Documentation" class="md-nav__button md-logo" aria-label="DragonIK Documentation" data-md-component="logo">
+      
+  <img src="../../Assets/dragonik_icon.png" alt="logo">
+
+    </a>
+    DragonIK Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GettingStarted/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Aiming IK Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Aiming IK Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Aiming IK Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Aiming%20IK%20Tutorials/e-aimsolver/" class="md-nav__link">
+        Aim Solver Setup (Generic)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Foot placement IK Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Foot placement IK Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Foot placement IK Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foot%20placement%20IK%20Tutorials/Terrain_Solving/" class="md-nav__link">
+        About terrain IK solving
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" data-md-state="indeterminate" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        1. Humans
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="1. Humans" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          1. Humans
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foot%20placement%20IK%20Tutorials/1.%20Humans/a-bipeds/" class="md-nav__link">
+        Human/Biped foot placement Setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" data-md-state="indeterminate" type="checkbox" id="__nav_4_3" checked>
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        2. Quadrupeds
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2. Quadrupeds" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          2. Quadrupeds
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foot%20placement%20IK%20Tutorials/2.%20Quadrupeds/b-quadrupeds/" class="md-nav__link">
+        Animals/Quadrupeds foot placement Setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" data-md-state="indeterminate" type="checkbox" id="__nav_4_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        3. Spiders
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="3. Spiders" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          3. Spiders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foot%20placement%20IK%20Tutorials/3.%20Spiders/c-spider/" class="md-nav__link">
+        Spider foot placement setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" data-md-state="indeterminate" type="checkbox" id="__nav_4_5" checked>
+      
+      <label class="md-nav__link" for="__nav_4_5">
+        4. Snakes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="4. Snakes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          4. Snakes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foot%20placement%20IK%20Tutorials/4.%20Snakes/d-snake/" class="md-nav__link">
+        Snakes/Worms foot placement Setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" data-md-state="indeterminate" type="checkbox" id="__nav_4_6" checked>
+      
+      <label class="md-nav__link" for="__nav_4_6">
+        FAQ
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Foot%20placement%20IK%20Tutorials/FAQ/f-common_problems/" class="md-nav__link">
+        Common problems & solutions related to foot placement IK
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        IK Solvers Info
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="IK Solvers Info" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          IK Solvers Info
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dragon Aim Look Solver
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Dragon Aim Look Solver
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    Table
+  </a>
+  
+    <nav class="md-nav" aria-label="Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-input-data" class="md-nav__link">
+    Core input data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-input-data" class="md-nav__link">
+    Optional Input Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reaching-separate-arm-aim" class="md-nav__link">
+    Reaching &amp; Separate Arm Aim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-clamping-settings" class="md-nav__link">
+    Advanced Clamping Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplier-settings" class="md-nav__link">
+    Multiplier Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curve-input-settings" class="md-nav__link">
+    Curve Input Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toggle-settings" class="md-nav__link">
+    Toggle Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-terrain-settings" class="md-nav__link">
+    Tail Terrain Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpolation-settings" class="md-nav__link">
+    Interpolation Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#look-at-settings" class="md-nav__link">
+    Look At Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging-only" class="md-nav__link">
+    Debugging Only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../footsolver/" class="md-nav__link">
+        Dragon Foot Solver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spinesolver/" class="md-nav__link">
+        Dragon Spine Solver
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Tips & Tricks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tips & Tricks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tips & Tricks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips%20%26%20Tricks/UsefulTips/" class="md-nav__link">
+        Super Useful Tips
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="dragon-aim-look-solver">Dragon Aim Look Solver</h1>
+<hr />
+<p>This is a very powerful and versatile solver that handles everything related to full body aiming. Whether it is for quadrupeds,
+gun aiming or even 3-point VR solving.</p>
+<h2 id="table">Table</h2>
+<hr />
+<h3 id="core-input-data">Core input data</h3>
+<p>This is the most important input data to supply for the aim solver to work. Everything else in the solver are optional according
+to individual use case.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Start Bone (Eg:- Head)</td>
+<td align="left">The head bone.</td>
+</tr>
+<tr>
+<td align="left">End Bone</td>
+<td align="left">The last bone to be influenced. (Eg:- Pelvis or chest)</td>
+</tr>
+<tr>
+<td align="left">LookAtLocation</td>
+<td align="left">Target location transform in world space</td>
+</tr>
+</tbody>
+</table>
+<h3 id="optional-input-data">Optional Input Data</h3>
+<p>These are the optional inputs, such as the leg and arm data. The leg data is used for reverse IK of the feets when the body is aiming.
+The hand input is needed for the arm aiming/reaching logic.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Dragon Input Data (optional)</td>
+<td align="left">Type the input bones used by the solver - pelvis,spine-start and feets. Any wrong bone typing mistake can cause the solver to fail.</td>
+</tr>
+<tr>
+<td align="left">Hands Input (optional)</td>
+<td align="left">The hand inputs. Used for seperate clamping and restricting of limb movements during body aiming. Uses : Weapon aiming, hand restriction while extreme body bending, wings stability etc</td>
+</tr>
+<tr>
+<td align="left">Main Arm Index</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="reaching-separate-arm-aim">Reaching &amp; Separate Arm Aim</h3>
+<p>This section only handles the optional logic of multi-arm aiming and reaching.
+If you desire dual gun aiming or even 3-point VR arm solving, then this section is your friend.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Overrided arm aim target transform array</td>
+<td align="left">Separate aim targets array for hands. Break this parameter after exposing to expose the array for dynamic modification.</td>
+</tr>
+<tr>
+<td align="left">Hand aiming/reaching use the overrided target transform array ?</td>
+<td align="left">If enabled, the overrided arm aim target array is used for the hand aiming.</td>
+</tr>
+<tr>
+<td align="left">Hand rotations use the overrided target transforms ?</td>
+<td align="left">If enabled, the arm rotation is mirrored by the target transform's rotation.</td>
+</tr>
+<tr>
+<td align="left">Allow hand stretching ?</td>
+<td align="left">If enabled, the arms can stretch beyond its original bone length constraints.</td>
+</tr>
+<tr>
+<td align="left">Reach instead of aiming ? (Only for arms)</td>
+<td align="left">Switching between arm aiming and reaching. Reaching is great when dynamically picking objects of holding something. Enable this for VR IK arms.</td>
+</tr>
+<tr>
+<td align="left">Make hands positions influence body ? (If using multi-arm aiming)</td>
+<td align="left">If enabled, the body rotation is influenced by the arm target locations. Only if reaching mode is enabled.</td>
+</tr>
+<tr>
+<td align="left">Should arm twist when hand rotates ? (If reaching mode)</td>
+<td align="left">You can completely ignore arm twisting and just twist the hands alone.</td>
+</tr>
+<tr>
+<td align="left">Arm pole system method</td>
+<td align="left">Select the pole system for the arms. Only used if reaching mode is used.</td>
+</tr>
+<tr>
+<td align="left">Arm twist axis technique</td>
+<td align="left">Choose the axis of your arm twisting. Only used if reaching mode is used.</td>
+</tr>
+<tr>
+<td align="left">Hand rotation method</td>
+<td align="left">Decide if the hand rotation is additively calculated or directly replaced by the hand transforms.</td>
+</tr>
+<tr>
+<td align="left">Override head rotation to use the look transform rotation ?</td>
+<td align="left">If this is enabled, then the head rotation uses the rotation of the look target transform instead of aiming at the target. It can be used to set the VR hmd rotation into the head bone, to get the head rotation in all angles.</td>
+</tr>
+<tr>
+<td align="left">Enable arm interpolation ?</td>
+<td align="left">Enable this for getting arms to interpolate instead of snapping to location. Arm interpolation is different from the other interpolation parameter.</td>
+</tr>
+<tr>
+<td align="left">Arm interpolation speed</td>
+<td align="left">It's the speed of the arm interpolation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="advanced-clamping-settings">Advanced Clamping Settings</h3>
+<p>All your core clamping parameters are held here. Whether it is for the head,body,arms or even the overall max-min clamp of everything.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Max Body Lookat Clamp</td>
+<td align="left">The maximum allowed body chain rotation. Uses the body clamp curve as a multiplier for the final result.</td>
+</tr>
+<tr>
+<td align="left">Inner Body Lookat Treshold</td>
+<td align="left">This is a treshold angle limit for the body aiming. If the angles cross this treshold, then the bones will start the aiming process.</td>
+</tr>
+<tr>
+<td align="left">Head Max Clamp</td>
+<td align="left">Maximum separate limbs clamp. Can be used to shrink the angle or extend the angle with respect to the body clamp. Ignored if seperate head clamp bool is disabled.</td>
+</tr>
+<tr>
+<td align="left">Limbs Max Clamp</td>
+<td align="left">Maximum separate limbs clamp. Can be used to shrink the max angle or extend the max angle with respect to the body clamp.</td>
+</tr>
+<tr>
+<td align="left">Max Vertical Angle Range (Degrees)</td>
+<td align="left">Max global vertical rotation clamp. Beyond these clamps, the aiming reverses.</td>
+</tr>
+<tr>
+<td align="left">Max Horizontal Angle Range (Degrees)</td>
+<td align="left">Max global horizontal rotation clamp. Beyond these clamps, the aiming reverses.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multiplier-settings">Multiplier Settings</h3>
+<p>These are multiplier parameters that helps fine-tune the body dipping logic in various scenarios.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Downward translation when aiming upwards (Multiplier)</td>
+<td align="left">The extra dip downwards if character is looking vertically upwards.</td>
+</tr>
+<tr>
+<td align="left">Downward translation when aiming downwards</td>
+<td align="left">The extra dip downwards if character is looking vertically downwards.</td>
+</tr>
+<tr>
+<td align="left">Vertical Dip Treshold</td>
+<td align="left">This is the "gap" until the body starts to dip when aiming downwards.</td>
+</tr>
+<tr>
+<td align="left">Sideward translation when aiming sideways (Multiplier)</td>
+<td align="left">The extra offset of the root bone in left/right if character's end bone is rotating towards the same direction.</td>
+</tr>
+<tr>
+<td align="left">Downward translation when aiming sideways (Multiplier)</td>
+<td align="left">The extra offset of the root bone in left/right if character's root bone is rotate towards the same direction.</td>
+</tr>
+<tr>
+<td align="left">Vertical aim clamp ratio for body</td>
+<td align="left">Tweak this if you want the clamp intensity to be different in the vertical axis. It is a multiplier ratio, and clamp is relative to existing setup. 0 = Absolutley no vertical body bending/aiming. 1 = Full Vertical body bending/aiming. Only applies to body chain. Ignores arms and head.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="curve-input-settings">Curve Input Settings</h3>
+<p>There are the curve parameters that work in tangent with other parameters.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Bone Clamp Curve</td>
+<td align="left">Curve clamp used to tweak the body bending limits. Works as a multiplier and is part of the total solving calculation. 0th value in X-axis denotes the clamp intensity of the end bone (eg:- if max body clamp is 100, and the 0th value is 0.1, then the final clamp of pelvis/end bone is 10). All values until the 1st value in the X-axis are multipliers for all the bone chains from End to Start bones. Exact 1st X-axis value is ignored, as the head clamp is solely determined by the separate head clamp parameter.</td>
+</tr>
+<tr>
+<td align="left">Body Rotation Multiplier Curve</td>
+<td align="left">Curve multiplier to tweak the rotation multiplier in the body chain. Default set to 1 always. No need for modification in most cases.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="toggle-settings">Toggle Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Should feets be locked using IK ?</td>
+<td align="left">Lock legs to its original position using IK as the body moves and rotates. Only works with valid dragon input data.</td>
+</tr>
+<tr>
+<td align="left">Ignore Elbow Compression</td>
+<td align="left">Only rotate the shoulder towards the target, and ignore the wrist and elbow in the solving.</td>
+</tr>
+<tr>
+<td align="left">Ignore Seperate Hand solving</td>
+<td align="left">Turn off separate limbs aiming.</td>
+</tr>
+<tr>
+<td align="left">Use Relative Rotation Algorithm ?</td>
+<td align="left">Switch between two different rotation algorithm for different type of results. [enabled] = Relative rotation algorithm provides greater degree of freedom of movement and stable poses. Favours pose stability over accuracy. [disabled] = Non-Relative rotation algorthm provides a more direct and natural aiming but with limit in the range of motion. Favours accuracy over pose stability.</td>
+</tr>
+<tr>
+<td align="left">Use Separate independent clamping for head ?</td>
+<td align="left">If enabled, the heads clamp is determined by the separate max head clamp parameter. If disabled, the head clamp is determined by the value in the clamp curve graph along with the rest of the body. Also influenced by max body clamp parameter.If using the aim solver for tails, keep this disabled.</td>
+</tr>
+<tr>
+<td align="left">Head use exact accurate aiming ?</td>
+<td align="left">If enabled, head aims exactly at the target regardless of the rest of the body chain. If disabled, head aims while adjusting itself with respect to the rest of the body chain. Can result in a bit more stable but offseted aiming.</td>
+</tr>
+<tr>
+<td align="left">Enable Solver</td>
+<td align="left">Toggle this parameter to instantly turn on/off ik.</td>
+</tr>
+<tr>
+<td align="left">Automatic Foot-Knee-Thigh detection</td>
+<td align="left">Parameter to choose between automatic feet bone detection or manual method. If enabled, solvers only uses the feet bones, and automatically assumes the next 2 parent bones as knees and thighs. If disabled, solvers uses the feet bones, knee bones and thigh bones typed in the feet array. If disabled, all bones need to be valid. Any invalid bones will not activate the ik. Very useful to keep it disabled on DAZ rigs and certain animal characters, where the thigh-knee-foot are not in a straight linear hierarchy.</td>
+</tr>
+<tr>
+<td align="left">Work outside gameplay (For sequencer)</td>
+<td align="left">Enable this to make the solvers calcualte everytime, even during non-gameplay scenarios. Such as sequencer recording sessions.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tail-terrain-settings">Tail Terrain Settings</h3>
+<p>This is a special section that makes the bone chain to adapt to the terrain. It can be used for long necks of a dragon, or even long tails of a character.
+A single trace line is fired for the terrain solving calculation if using these features.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Is it a terrain addaptive chain ? (like tails)</td>
+<td align="left">Enable this to turn this solver into an automatic terrain adaptive chain. The lookatlocation parameter is disabled here, in favour of the debuglooklocation as the base reference of the height. The viewport look widget will be used as reference for the in-game terrain adaption.</td>
+</tr>
+<tr>
+<td align="left">TAC Collision channel</td>
+<td align="left">Trace channel used by the solver traces. Recommended to create a new dedicated trace channel for the ik through project settings.</td>
+</tr>
+<tr>
+<td align="left">Trace Up Height</td>
+<td align="left">This is the upward height of the trace from the lookat widget.</td>
+</tr>
+<tr>
+<td align="left">Trace Down Height</td>
+<td align="left">This is the downward height of the trace from the lookat widget.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interpolation-settings">Interpolation Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Interpolation Type</td>
+<td align="left">Select the type of interpolation method.</td>
+</tr>
+<tr>
+<td align="left">Enable Interpolation</td>
+<td align="left">A boolean to enable/disable overall interpolation. Arms interpolation is independent.</td>
+</tr>
+<tr>
+<td align="left">Interpolation Speed</td>
+<td align="left">Speed of solving interpolation.</td>
+</tr>
+<tr>
+<td align="left">Toggle Interpolation Speed</td>
+<td align="left">Speed of interpolation between toggling the on/off state of the aim IK.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="look-at-settings">Look At Settings</h3>
+<p>All the forward and upward axis of the character can be defined here. Tweak according to the general direction the character faces in component space.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Forward Axis</td>
+<td align="left">The forward direction axis of the character. Characters using the standard unreal directions use the default value.</td>
+</tr>
+<tr>
+<td align="left">Upward Axis</td>
+<td align="left">The up direction axis of the character. Characters using the standard unreal directions use the default (0,0,1) value.</td>
+</tr>
+<tr>
+<td align="left">Target Offset (only for limbs)</td>
+<td align="left">Useful for tweaking the aiming offset of arms/limbs. Popular use is for weapons aiming and accuracy. Offset works in component space.</td>
+</tr>
+<tr>
+<td align="left">Use Reference Forward Axis Logic ?</td>
+<td align="left">If using mocap or any use case that involves altering the forward axis during gameplay, this can be enabled to dynamically alter the arm and leg poles along with the along with the change in axis. The forward axis is compared with the reference forward axis to calculate the offset of the poles. If they are the same, then nothing happens.</td>
+</tr>
+<tr>
+<td align="left">Reference Forward Axis</td>
+<td align="left">This parameter is mainly useful when using mocap animations that involves the character rotating its root bone in multiple directions. It is the default forward vector of your character in component space. The forward vector is compared with the reference forward vector to appropriately alter the knee poles and elbow poles and correcting them. If your character is setup in standard unreal forward axis, then there is no need to alter this.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debugging-only">Debugging Only</h3>
+<p>There are mainly used for debugging purposes, such as the widget locations.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Debug Look at Location</td>
+<td align="left">Used for internal animation blueprint viewport for debugging. Real gameworld uses "LookAtLocation".If Tail Terrain Adaptive mode is enabled, then this is turned into a constant height reference point from which the line trace is fired.</td>
+</tr>
+<tr>
+<td align="left">Debug Hand Locations</td>
+<td align="left">Used for internal animation blueprint viewport debugging when using separate arms aiming/reaching. This does not influence the game world arm transforms</td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../Foot%20placement%20IK%20Tutorials/FAQ/f-common_problems/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Common problems & solutions related to foot placement IK
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../footsolver/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Dragon Foot Solver
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Eternal Monke Games
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.tabs", "toc.integrate", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+    
+  </body>
+</html>
