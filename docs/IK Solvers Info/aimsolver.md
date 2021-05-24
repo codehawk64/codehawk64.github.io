@@ -9,7 +9,7 @@ parent: Parameter Meanings
 ---
 
 
-This is a very powerful and versatile solver that handles everything related to full body aiming. Whether it is for quadrupeds,
+A very powerful and versatile solver that handles everything related to full body aiming. Whether it is for quadrupeds,
 gun aiming or even 3-point VR solving.
 
 
