@@ -677,6 +677,96 @@
     Table
   </a>
   
+    <nav class="md-nav" aria-label="Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-data" class="md-nav__link">
+    Input Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solver" class="md-nav__link">
+    Solver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    Basic Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-curve-settings" class="md-nav__link">
+    Master Curve Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-settings" class="md-nav__link">
+    Advanced Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leghead-tail-stabilization" class="md-nav__link">
+    Leg,Head &amp; Tail Stabilization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pelvischest-control-settings" class="md-nav__link">
+    [Pelvis/Chest]  Control Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimental" class="md-nav__link">
+    Experimental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spine-advanced-tweaks" class="md-nav__link">
+    Spine advanced tweaks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-direction-settings" class="md-nav__link">
+    Component direction settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snake-settings" class="md-nav__link">
+    Snake settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -753,6 +843,7 @@
 <p>This solver modifies the body to adjust itself to the terrain. It does not modify the feet positions on its own, as that is handled by the Dragon Foot Solver.</p>
 <h2 id="table">Table</h2>
 <hr />
+<h3 id="input-data">Input Data</h3>
 <table>
 <thead>
 <tr>
@@ -765,6 +856,17 @@
 <td align="left">dragon input data</td>
 <td align="left">Type the input bones used by the solver - pelvis,spine-start and feets</td>
 </tr>
+</tbody>
+</table>
+<h3 id="solver">Solver</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Precision</td>
 <td align="left">Tolerance for final tip location delta from EffectorLocation</td>
@@ -781,6 +883,17 @@
 <td align="left">MaxIterations</td>
 <td align="left">Maximum number of iterations allowed.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="basic-settings">Basic Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Alpha</td>
 <td align="left">Alpha of the entire solver. 0 means no solving and 1 means maximum solving.</td>
@@ -798,24 +911,16 @@
 <td align="left">The repelling trace channel useful for handling close space areas.</td>
 </tr>
 <tr>
+<td align="left">Trace Type</td>
+<td align="left">Select if using line,sphere or box trace for IK solving.</td>
+</tr>
+<tr>
 <td align="left">Trace_Radius</td>
 <td align="left">If trace type is box or sphere, its radius is controlled using the Trace Radius</td>
 </tr>
 <tr>
-<td align="left">LOD Threshold</td>
-<td align="left">Max LOD that this node is allowed to run</td>
-</tr>
-<tr>
-<td align="left">Extra Dip Multiplier</td>
-<td align="left">If your character isn't dipping enough to touch the ground during slopes, slightly increase this value. Only handles dipping based on the pairs of feet and the difference between their respective trace hit location. Will not dip on flat surfaces.</td>
-</tr>
-<tr>
-<td align="left">Rotate and move bone around terrain ?</td>
-<td align="left">Enable this to rotate the pelvis and chest is perfect perpendicular fashion. Good for general purpose, but can cause extreme rotation and translations in wild,sharp and uneven surfaces. Recommended to experiment between this enabled and disabled.</td>
-</tr>
-<tr>
-<td align="left">Ignore Lerping</td>
-<td align="left">Disable both location and rotation interpolation</td>
+<td align="left">Global trace scale multiplier</td>
+<td align="left">Uniformly increases all trace related parameters (Trace down height,Trace up height,Max feet-terrain...distance, Min terrain-capsule...distance). I personally just use this rather than individually tweaking each trace parameter.</td>
 </tr>
 <tr>
 <td align="left">Trace Downward Height</td>
@@ -826,8 +931,12 @@
 <td align="left">Line trace height above the spines/feets</td>
 </tr>
 <tr>
-<td align="left">Alternate Cross Radius</td>
-<td align="left">This is the spacing width of the 4 trace lines arranged in a cross pattern, around both pelvis and chest bones. Ensure the spacing radius is tweaked to the spacing of the feet. This is used for important subtle calculations, such as detecting slopes/flat surfaces. Used for rotation calculation if "Alternate cross based rotation" is enabled.</td>
+<td align="left">Use Anti-Channel Functionality</td>
+<td align="left">Use the anti-channel in the solving logic. Use meshes with the anti-channel set to "block" to repel the traces from touching ceilings and closed spaces. Also useful when under stairs or narrow multi-storied buildings. Cover the ceilings and under stairs with anti-channel blocked meshes.</td>
+</tr>
+<tr>
+<td align="left">Calculation Relative To Ref Pose</td>
+<td align="left">Should solver calculation be based on the default reference pose or the current animated pose ?</td>
 </tr>
 <tr>
 <td align="left">Maximum Feet-Terrain Fail Distance</td>
@@ -837,14 +946,170 @@
 <td align="left">Minimum Terrain-Capsule Activation Distance</td>
 <td align="left">The minimum distance between feet and terrain to allow solving to happen. Increase this value if ik is turning off easilly on slopes. Too high of a value can make the ik to "stick" to the ground more, which can be undesirable. Recommended to tweak this value until it feels right</td>
 </tr>
+</tbody>
+</table>
+<h3 id="master-curve-settings">Master Curve Settings</h3>
+<table>
+<thead>
 <tr>
-<td align="left">Display LineTracing</td>
-<td align="left">Enable this to render the traces in the animgraph viewports.</td>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Use custom velocity instead of automatic character velocity for curves ?</td>
+<td align="left">Enable this to use your custom player velocity instead of automatically getting it from the parent character class movement component. This velocity value will be used to drive the curve parameters that depend on velocity.</td>
 </tr>
 <tr>
-<td align="left">Use Anti-Channel Functionality</td>
-<td align="left">Use the anti-channel in the solving logic. Use meshes with the anti-channel set to "block" to repel the traces from touching ceilings and closed spaces. Also useful when under stairs or narrow multi-storied buildings. Cover the ceilings and under stairs with anti-channel blocked meshes.</td>
+<td align="left">Custom curve velocity</td>
+<td align="left">This is used as the velocity if "Use custom velocity..." parameter is enabled.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="advanced-settings">Advanced Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LOD Threshold</td>
+<td align="left">Max LOD that this node is allowed to run</td>
+</tr>
+<tr>
+<td align="left">Rotate and move bone around terrain ?</td>
+<td align="left">Enable this to rotate the pelvis and chest is perfect perpendicular fashion. Good for general purpose, but can cause extreme rotation and translations in wild,sharp and uneven surfaces. Recommended to experiment between this enabled and disabled.</td>
+</tr>
+<tr>
+<td align="left">Solving method for bones between pelvis and chest</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Ignore Lerping</td>
+<td align="left">Disable both location and rotation interpolation</td>
+</tr>
+<tr>
+<td align="left">Reverse Fabrik</td>
+<td align="left">Enable this to prioritise chest over the pelvis. The normal fabrik mode prioritises the pelvis transformation location when on extreme terrains. The reverse fabrik mode ensures chest is given priority.</td>
+</tr>
+<tr>
+<td align="left">Alternate Cross Radius (4 green trace lines)</td>
+<td align="left">This is the spacing width of the 4 trace lines arranged in a cross pattern, around both pelvis and chest bones. Ensure the spacing radius is tweaked to the spacing of the feet. This is used for important subtle calculations, such as detecting slopes/flat surfaces. Used for rotation calculation if "Alternate cross based rotation" is enabled.</td>
+</tr>
+<tr>
+<td align="left">Rotation alpha between end points</td>
+<td align="left">This is the rotation alpha value of all the bones between the pelvis and chest. 1 value means full solved state, while 0 means 0 solved state.</td>
+</tr>
+<tr>
+<td align="left">Trace Interpolation Speed</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Body Location Interpolation Speed</td>
+<td align="left">Controls the location interpolation speed of the body. Higher values means faster interpolation. Slower values means slower but also smoother interpolation.</td>
+</tr>
+<tr>
+<td align="left">Body Rotation Interpolation Speed</td>
+<td align="left">Controls the rotation interpolation speed of the body. Higher values means faster interpolation. Slower values means slower but also smoother interpolation.</td>
+</tr>
+<tr>
+<td align="left">Interpolation multiplier relative to velocity curve</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Chest Influence Alpha</td>
+<td align="left">The location alpha value for the chest. 1 means full solving of the chest transformation. 0 means no solving of the chest transformation. Chest rotation still works regardless.</td>
+</tr>
+<tr>
+<td align="left">Enable Solver</td>
+<td align="left">Enable/Disable the solver</td>
+</tr>
+<tr>
+<td align="left">Force Activation</td>
+<td align="left">This will force the ik to work at all times. Animals will not be able to jump if this is enabled. Only recommended for testing and debugging purposes.</td>
+</tr>
+<tr>
+<td align="left">accurate feet placement</td>
+<td align="left">Enable this to use proper accurate feet placement logic. But it might provide jumpy nature for certain quadrupeds like horses when they are moving on slopes. Recommended use case is to disable this when a quadruped animal is moving, but enable it when it is idle.</td>
+</tr>
+<tr>
+<td align="left">Accurate-Simple foot placement curve relative to velocity curve</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">use crosshair trace also for fail distance</td>
+<td align="left">Enable this to use the 4 cross based traces to turn off the ik, if any of the trace hits are too far.</td>
+</tr>
+<tr>
+<td align="left">Solve only pelvis bone ?</td>
+<td align="left">Enable this to only solve the pelvis bone, while the remaining bones remain unchanged. Recommended to enable it for bipeds like humans and raptors. Also recommended for single root spiders.</td>
+</tr>
+<tr>
+<td align="left">Avoid solving chest bone ?</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Overall PostSolved Offset</td>
+<td align="left">Additional offset parameters to the overall bones</td>
+</tr>
+</tbody>
+</table>
+<h3 id="leghead-tail-stabilization">Leg,Head &amp; Tail Stabilization</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Stabilize legs connected to pelvis during body bending ?</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(Upslope) Pelvic legs stabilization alpha</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(Downslope) Pelvic legs stabilization alpha</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Stabilize legs connected to chest during body bending ?</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(Upslope) Chest legs stabilization alpha</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(Downslope) Chest legs stabilization alpha</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(optional) Head bone to be stabilized</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">(optional) Tail bone to be stabilized</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="pelvischest-control-settings">[Pelvis/Chest]  Control Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Extra dip When going up slopes</td>
 <td align="left">Extra dip when pelvis is on an upward slope</td>
@@ -854,61 +1119,71 @@
 <td align="left">Extra dip when pelvis is on a downward slope</td>
 </tr>
 <tr>
-<td align="left">Reverse Fabrik</td>
-<td align="left">Enable this to prioritise chest over the pelvis. The normal fabrik mode prioritises the pelvis transformation location when on extreme terrains. The reverse fabrik mode ensures chest is given priority.</td>
+<td align="left">Extra dip multiplier relative to feet lift difference</td>
+<td align="left">If your character isn't dipping enough to touch the ground during slopes, slightly increase this value. Only handles dipping based on the pairs of feet and the difference between their respective trace hit location. Will not dip on flat surfaces.</td>
 </tr>
 <tr>
-<td align="left">Calculation Relative To Ref Pose</td>
-<td align="left">Should solver calculation be based on the default reference pose or the current animated pose ?</td>
+<td align="left">Pelvis gravity priority</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td align="left">[Pelvis &amp; Chest] Z Offset</td>
-<td align="left">Optional additional Z offset for the [Pelvis &amp; Chest]</td>
+<td align="left">[Pelvis/Chest] Z Offset</td>
+<td align="left">Optional additional Z offset for the [Pelvis/Chest]</td>
 </tr>
 <tr>
-<td align="left">Maximum Dip Height - [Pelvis &amp; Chest]</td>
-<td align="left">Maximum height the [Pelvis &amp; Chest] can dip below the base pose. Lower values means [Pelvis &amp; Chest] will dip less. For biped (2 feet) characters, this is only used.</td>
+<td align="left">Maximum Dip Height - [Pelvis/Chest]</td>
+<td align="left">Maximum height the [Pelvis/Chest] can dip below the base pose. Lower values means [Pelvis/Chest] will dip less. For biped (2 feet) characters, this is only used.</td>
 </tr>
 <tr>
-<td align="left">Differentiate between hard flat and rotated slopes [Pelvis &amp; Chest]</td>
-<td align="left">Enable this to make the trace lines differentiate between flat planar terrains and organic terrains</td>
+<td align="left">[Pelvis/Chest] dip height multiplier relative to velocity</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td align="left">Rotation alpha between end points</td>
-<td align="left">This is the rotation alpha value of all the bones between the pelvis and chest. 1 value means full solved state, while 0 means 0 solved state.</td>
+<td align="left">Down slope [Pelvis/Chest] forward rotation intensity</td>
+<td align="left">Controls the intensity of the [Pelvis/Chest] forward rotation with respect to the slopes. 0 means no rotation applied.</td>
 </tr>
+<tr>
+<td align="left">Up slope [Pelvis/Chest] forward rotation intensity</td>
+<td align="left">Controls the intensity of the [Pelvis/Chest] forward rotation with respect to the slopes. 0 means no rotation applied.</td>
+</tr>
+<tr>
+<td align="left">[Pelvis/Chest] Sideward Rotation Intensity on slopes</td>
+<td align="left">Controls the intensity of the [Pelvis/Chest] sideward rotation with respect to the slopes. 0 means no rotation applied.</td>
+</tr>
+<tr>
+<td align="left">[Pelvis &amp; Chest] Post Rotation Offset</td>
+<td align="left">Fixed rotation offsets to be applied on [Pelvis/Chest]</td>
+</tr>
+<tr>
+<td align="left">Use Alternate Cross-Based [Pelvis/Chest] Rotation</td>
+<td align="left">Enable this to use the 4 cross-based trace lines to determine the rotation of the pelvis instead of the default normal method</td>
+</tr>
+</tbody>
+</table>
+<h3 id="experimental">Experimental</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Automatic Fabrik Selection (Development)</td>
 <td align="left">An experimental feature, where the solver automatically switch between fabrik and reverse fabrik mode depending on the slope.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="spine-advanced-tweaks">Spine advanced tweaks</h3>
+<table>
+<thead>
 <tr>
-<td align="left">Body Location Lerp Speed</td>
-<td align="left">Controls the location interpolation speed of the body. Higher values means faster interpolation. Slower values means slower but also smoother interpolation.</td>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
 </tr>
-<tr>
-<td align="left">Body Rotation Lerp Speed</td>
-<td align="left">Controls the rotation interpolation speed of the body. Higher values means faster interpolation. Slower values means slower but also smoother interpolation.</td>
-</tr>
-<tr>
-<td align="left">Chest Influence Alpha</td>
-<td align="left">The location alpha value for the chest. 1 means full solving of the chest transformation. 0 means no solving of the chest transformation. Chest rotation still works regardless.</td>
-</tr>
-<tr>
-<td align="left">[Pelvis &amp; Chest] Forward Rotation Intensity</td>
-<td align="left">Controls the intensity of the [Pelvis &amp; Chest] forward rotation with respect to the slopes. 0 means no rotation applied.</td>
-</tr>
-<tr>
-<td align="left">[Pelvis &amp; Chest] Sideward Rotation Intensity</td>
-<td align="left">Controls the intensity of the [Pelvis &amp; Chest] sideward rotation with respect to the slopes. 0 means no rotation applied.</td>
-</tr>
-<tr>
-<td align="left">[Pelvis &amp; Chest] Post Rotation Offset</td>
-<td align="left">Fixed rotation offsets to be applied on [Pelvis &amp; Chest]</td>
-</tr>
-<tr>
-<td align="left">Use Alternate Cross-Based [Pelvis &amp; Chest] Rotation</td>
-<td align="left">Enable this to use the 4 cross-based trace lines to determine the rotation of the pelvis instead of the default normal method</td>
-</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Is spine always fully extended ?</td>
 <td align="left">Enable this to allow spine to bend and modify at a fixed maximum length</td>
@@ -925,30 +1200,17 @@
 <td align="left">Extension Switch Speed</td>
 <td align="left">The speed of the spine extension/compression during slopes</td>
 </tr>
+</tbody>
+</table>
+<h3 id="component-direction-settings">Component direction settings</h3>
+<table>
+<thead>
 <tr>
-<td align="left">Enable Solver</td>
-<td align="left">Enable/Disable the solver</td>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
 </tr>
-<tr>
-<td align="left">Force Activation</td>
-<td align="left">This will force the ik to work at all times. Animals will not be able to jump if this is enabled. Only recommended for testing and debugging purposes.</td>
-</tr>
-<tr>
-<td align="left">accurate feet placement</td>
-<td align="left">Enable this to use proper accurate feet placement logic. But it might provide jumpy nature for certain quadrupeds like horses when they are moving on slopes. Recommended use case is to disable this when a quadruped animal is moving, but enable it when it is idle.</td>
-</tr>
-<tr>
-<td align="left">use crosshair trace also for fail distance</td>
-<td align="left">Enable this to use the 4 cross based traces to turn off the ik, if any of the trace hits are too far.</td>
-</tr>
-<tr>
-<td align="left">Is Biped Character ?</td>
-<td align="left">Enable this to only solve the pelvis bone, while the remaining bones remain unchanged. Recommended to enable it for bipeds like humans and raptors. Also recommended for single root spiders.</td>
-</tr>
-<tr>
-<td align="left">Overall PostSolved Offset</td>
-<td align="left">Additional offset parameters to the overall bones</td>
-</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Up Direction Vector</td>
 <td align="left">The up direction vector of the character in component space. 99% cases, this should not be altered.</td>
@@ -961,6 +1223,17 @@
 <td align="left">Flip forward and right rotation</td>
 <td align="left">If character is rigged and animated in the opposite direction to the standard unreal forward/right directions, then enable this. 99% cases, this should not be altered.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="miscellaneous">Miscellaneous</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Solver Reference Pose</td>
 <td align="left">Whether to use the reference pose or animated pose for calculations.</td>
@@ -969,13 +1242,32 @@
 <td align="left">Strict Spine-Feet pair finding</td>
 <td align="left">Automatically correct the spine and feet bone pairing with respect to the typed bone names in the input settings. If correct bone names are typed, it makes no difference in the end.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="snake-settings">Snake settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">Is it a snake ?</td>
 <td align="left">Enable snake mode. If character is either a snake or a worm, enable this. Can also be turned on for biped characters sleeping or proning on the ground.</td>
 </tr>
 <tr>
+<td align="left">Enable Snake Interpolation</td>
+<td align="left"></td>
+</tr>
+<tr>
 <td align="left">Snake Joint Speed (If snake true)</td>
 <td align="left">Spine interpolation speed if snake mode is enabled.</td>
+</tr>
+<tr>
+<td align="left">Ignore tip bone modification</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
