@@ -777,6 +777,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z-inputstructs/" class="md-nav__link">
+        Major Input Structs
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -986,7 +998,7 @@
 </tr>
 <tr>
 <td align="left">Solving method for bones between pelvis and chest</td>
-<td align="left"></td>
+<td align="left">There are 2 options, simple solving &amp; legacy fabrik method. Legacy solving handles all the bones between the pelvis and chest through FABRIK. Simple solving avoids FABRIK for the in-between bones, and instead just linearly positions the bones. Simple method preserves pose structure better, so it could be more stable apart from being cheaper.</td>
 </tr>
 <tr>
 <td align="left">Ignore Lerping</td>
@@ -1006,7 +1018,7 @@
 </tr>
 <tr>
 <td align="left">Trace Interpolation Speed</td>
-<td align="left"></td>
+<td align="left">This is the interpolation of the trace hit data. These work hand-in-hand with the body location interpolation speed, to create an additional layer of interpolation to provide really smooth results.</td>
 </tr>
 <tr>
 <td align="left">Body Location Interpolation Speed</td>
@@ -1018,7 +1030,7 @@
 </tr>
 <tr>
 <td align="left">Interpolation multiplier relative to velocity curve</td>
-<td align="left"></td>
+<td align="left">This is a curve that multiplies the total interpolation with itself. X-axis is velocity and Y-value is the interpolation multiplier. Tweak this for appropriate speed of interpolation between idle &amp; running state.</td>
 </tr>
 <tr>
 <td align="left">Chest Influence Alpha</td>
@@ -1038,7 +1050,7 @@
 </tr>
 <tr>
 <td align="left">Accurate-Simple foot placement curve relative to velocity curve</td>
-<td align="left"></td>
+<td align="left">This is a curve that switches between accurate foot placement and simple foot placement modes. X-axis is velocity. Y-value at 1 means accurate foot placement, while Y-value at 0 means simple foot placement . Tweak this for appropriate foot placement method depending on idle &amp; running state.</td>
 </tr>
 <tr>
 <td align="left">use crosshair trace also for fail distance</td>
@@ -1050,7 +1062,7 @@
 </tr>
 <tr>
 <td align="left">Avoid solving chest bone ?</td>
-<td align="left"></td>
+<td align="left">This is avoid solving only the chest bone, while the rest of the bones will still be modified as usual. This can be enabled if you don't desire tweaking the rotation of the chest bone using the forward rotation intensity parameter.</td>
 </tr>
 <tr>
 <td align="left">Overall PostSolved Offset</td>
@@ -1069,35 +1081,35 @@
 <tbody>
 <tr>
 <td align="left">Stabilize legs connected to pelvis during body bending ?</td>
-<td align="left"></td>
+<td align="left">This is to stabilize the rotation of the leg connnected to the pelvis and act independent from the body rotations.</td>
 </tr>
 <tr>
 <td align="left">(Upslope) Pelvic legs stabilization alpha</td>
-<td align="left"></td>
+<td align="left">This is an alpha that can lerp between 0 (default) and 1 (stabilized) modes for the pelvic legs if the entire body is going upslope.</td>
 </tr>
 <tr>
 <td align="left">(Downslope) Pelvic legs stabilization alpha</td>
-<td align="left"></td>
+<td align="left">This is an alpha that can lerp between 0 (default) and 1 (stabilized) modes for the pelvic legs if the entire body is going downslope.</td>
 </tr>
 <tr>
 <td align="left">Stabilize legs connected to chest during body bending ?</td>
-<td align="left"></td>
+<td align="left">This is to stabilize the rotation of the leg connnected to the chest and act independent from the body rotations.</td>
 </tr>
 <tr>
 <td align="left">(Upslope) Chest legs stabilization alpha</td>
-<td align="left"></td>
+<td align="left">This is an alpha that can lerp between 0 (default) and 1 (stabilized) modes for the chest legs if the entire body is going upslope.</td>
 </tr>
 <tr>
 <td align="left">(Downslope) Chest legs stabilization alpha</td>
-<td align="left"></td>
+<td align="left">This is an alpha that can lerp between 0 (default) and 1 (stabilized) modes for the chest legs if the entire body is going downslope.</td>
 </tr>
 <tr>
 <td align="left">(optional) Head bone to be stabilized</td>
-<td align="left"></td>
+<td align="left">Similar to the legs, the head rotation can be stabilized here. This only works if chest legs stabilization is enabled.</td>
 </tr>
 <tr>
 <td align="left">(optional) Tail bone to be stabilized</td>
-<td align="left"></td>
+<td align="left">Similar to the legs, the tail rotation can be stabilized here. This only works if pelvis legs stabilization is enabled.</td>
 </tr>
 </tbody>
 </table>
@@ -1124,7 +1136,7 @@
 </tr>
 <tr>
 <td align="left">Pelvis gravity priority</td>
-<td align="left"></td>
+<td align="left">-1 means priority of [Pelvis/Chest]dip is towards the lowest touching leg. +1 means priority of dip is towards the highest touching leg. This value can be tweaked to have a balanced overall dipping result.</td>
 </tr>
 <tr>
 <td align="left">[Pelvis/Chest] Z Offset</td>
@@ -1136,7 +1148,7 @@
 </tr>
 <tr>
 <td align="left">[Pelvis/Chest] dip height multiplier relative to velocity</td>
-<td align="left"></td>
+<td align="left">This is a curve that multiplies the maximum dip height with itself. X-axis is velocity and Y-value is the dip multiplier. Tweak this for appropriate max dip when in idle and walking/running.</td>
 </tr>
 <tr>
 <td align="left">Down slope [Pelvis/Chest] forward rotation intensity</td>
@@ -1259,7 +1271,7 @@
 </tr>
 <tr>
 <td align="left">Enable Snake Interpolation</td>
-<td align="left"></td>
+<td align="left">A boolean to enable the snake chain solving interpolation. Disabling it will give instant solving without any smoothening.</td>
 </tr>
 <tr>
 <td align="left">Snake Joint Speed (If snake true)</td>
@@ -1267,7 +1279,7 @@
 </tr>
 <tr>
 <td align="left">Ignore tip bone modification</td>
-<td align="left"></td>
+<td align="left">This can be enabled to ignore the tip bone of the chain from solving. Example usecase is the tip of the tails, as we might not want to manually control it and let it get swayed freely by the bone chain.</td>
 </tr>
 </tbody>
 </table>
@@ -1306,13 +1318,13 @@
         </a>
       
       
-        <a href="../../Tips%20%26%20Tricks/UsefulTips/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../z-inputstructs/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Super Useful Tips
+              Major Input Structs
             </div>
           </div>
           <div class="md-footer__button md-icon">

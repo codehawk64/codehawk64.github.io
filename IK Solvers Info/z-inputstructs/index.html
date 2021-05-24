@@ -14,7 +14,7 @@
     
     
       
-        <title>Super Useful Tips - DragonIK Documentation</title>
+        <title>Major Input Structs - DragonIK Documentation</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#useful-tips-and-solutions-to-common-problems" class="md-skip">
+        <a href="#major-input-structs" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Super Useful Tips
+              Major Input Structs
             
           </span>
         </div>
@@ -203,13 +203,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../IK%20Solvers%20Info/aimsolver/" class="md-tabs__link">
+      <a href="../aimsolver/" class="md-tabs__link md-tabs__link--active">
         IK Solvers Info
       </a>
     </li>
@@ -219,15 +221,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Tips%20%26%20Tricks/UsefulTips/" class="md-tabs__link">
         Tips & Tricks
       </a>
     </li>
@@ -591,12 +591,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         IK Solvers Info
@@ -614,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IK%20Solvers%20Info/aimsolver/" class="md-nav__link">
+      <a href="../aimsolver/" class="md-nav__link">
         Dragon Aim Look Solver
       </a>
     </li>
@@ -626,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IK%20Solvers%20Info/footsolver/" class="md-nav__link">
+      <a href="../footsolver/" class="md-nav__link">
         Dragon Foot Solver
       </a>
     </li>
@@ -638,56 +640,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../IK%20Solvers%20Info/spinesolver/" class="md-nav__link">
+      <a href="../spinesolver/" class="md-nav__link">
         Dragon Spine Solver
       </a>
     </li>
   
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../IK%20Solvers%20Info/z-inputstructs/" class="md-nav__link">
-        Major Input Structs
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
-      
-      <label class="md-nav__link" for="__nav_6">
-        Tips & Tricks
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Tips & Tricks" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Tips & Tricks
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
           
             
   
@@ -704,12 +662,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Super Useful Tips
+          Major Input Structs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Super Useful Tips
+        Major Input Structs
       </a>
       
         
@@ -727,23 +685,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-custom-trace-channel" class="md-nav__link">
-    Create a custom trace channel
+  <a href="#dragon-input-data-dragondata_multiinput-struct" class="md-nav__link">
+    Dragon Input Data (DragonData_MultiInput Struct)
+  </a>
+  
+    <nav class="md-nav" aria-label="Dragon Input Data (DragonData_MultiInput Struct)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feet-bones-array-dragondata_footdata-struct" class="md-nav__link">
+    Feet Bones Array (DragonData_FootData Struct)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#check-if-line-traces-are-drawn-in-the-animation-blueprint-viewport" class="md-nav__link">
-    Check if line traces are drawn in the animation blueprint viewport
+        
+          <li class="md-nav__item">
+  <a href="#feet-finger-array-dragondata_fingerdata" class="md-nav__link">
+    Feet Finger Array (DragonData_FingerData)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#tweak-knee-direction-offsets-to-legs-bending-in-bad-directions" class="md-nav__link">
-    Tweak knee direction offsets to legs bending in bad directions
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -751,6 +715,48 @@
   
 </nav>
       
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Tips & Tricks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tips & Tricks" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tips & Tricks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips%20%26%20Tricks/UsefulTips/" class="md-nav__link">
+        Super Useful Tips
+      </a>
     </li>
   
 
@@ -774,22 +780,140 @@
               
                 
                 
-                <h1 id="useful-tips-and-solutions-to-common-problems">Useful tips and solutions to common problems</h1>
+                <h1 id="major-input-structs">Major Input Structs</h1>
 <hr />
-<h2 id="create-a-custom-trace-channel">Create a custom trace channel</h2>
-<hr />
-<p class="fs-3 ls-7 text-mono code-example"><img src="http://codehawk64.github.io/assets/images/custom_trace.PNG" >
-<img src="http://codehawk64.github.io/assets/images/custom_trace2.PNG" ></p>
-<p class="fs-3 ls-5 text-mono code-example">Create a custom trace channel that can be used by your IK. Depending on the project type, you can either set the new trace channel to ignore or block by default.
-The IK trace channel of your terrains and platforms need to be set to block to let the IK detect them.</p>
-<h2 id="check-if-line-traces-are-drawn-in-the-animation-blueprint-viewport">Check if line traces are drawn in the animation blueprint viewport</h2>
-<hr />
-<p>If your character feels like its not reacting to the terrains, check the animation blueprint viewport. Click on any of your solvers and see if the red lines and/or other widgets
-are showing up in the viewport. If nothing is showing up, then there is atleast one badly typed bone name.</p>
-<h2 id="tweak-knee-direction-offsets-to-legs-bending-in-bad-directions">Tweak knee direction offsets to legs bending in bad directions</h2>
-<hr />
-<p>For characters like horses which has straight vertical leg poses, the direction of the bending of legs can appear random when on slopes. To mitigate this, move the blue pole vectors of the foot solver in the animation graph viewport. The bending is directed by the direction of these poles. You can either drag them using the mouse, or type the values directly inside the feet array's "knee direction offset" parameter.</p>
-<hr />
+<p>This page explains the input structs used in the spine solver, feet solver and aim solver.</p>
+<h2 id="dragon-input-data-dragondata_multiinput-struct">Dragon Input Data (DragonData_MultiInput Struct)</h2>
+<p>This is the most important input data to supply for the aim solver to work. Everything else in the solver are optional according
+to individual use case.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Start Spine/ Chest</td>
+<td align="left">This is typically the chest bone. The start of the spine you want to end the calculation on. It is typically the first bone that connects the front legs.</td>
+</tr>
+<tr>
+<td align="left">Pelvis</td>
+<td align="left">The pelvis bone is typically the first bone that connects the back legs, although not always.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="feet-bones-array-dragondata_footdata-struct">Feet Bones Array (DragonData_FootData Struct)</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Feet Bone Name</td>
+<td align="left">self-explanatory</td>
+</tr>
+<tr>
+<td align="left">Knee Bone Name</td>
+<td align="left">self-explanatory</td>
+</tr>
+<tr>
+<td align="left">Thigh Bone Name</td>
+<td align="left">self-explanatory</td>
+</tr>
+<tr>
+<td align="left">Feet rotation offset</td>
+<td align="left">This is the additional rotation offset for the feets.</td>
+</tr>
+<tr>
+<td align="left">Fixed pole ?</td>
+<td align="left">Enable this to use fixed pole locations instead of dynamically and naturally following the knee bone.</td>
+</tr>
+<tr>
+<td align="left">Knee pole offset</td>
+<td align="left">This is the extra vector offset of the knee poles. It controls the visual widget in the animbp viewport.</td>
+</tr>
+<tr>
+<td align="left">Feet trace Offset</td>
+<td align="left">This is the extra vector offset of the trace origins of the feet.</td>
+</tr>
+<tr>
+<td align="left">Frontal spacing (4-point feets)</td>
+<td align="left">This is only used if 4-point feet rotation is used. This is the space between the front point and back point.</td>
+</tr>
+<tr>
+<td align="left">Side spacing (4-point feets)</td>
+<td align="left">This is only used if 4-point feet rotation is used. This is the space between the left point and the right point.</td>
+</tr>
+<tr>
+<td align="left">Feet rotation limit</td>
+<td align="left">This is the maximum rotation allowed for the feet to rotate</td>
+</tr>
+<tr>
+<td align="left">Fixed foot height ?</td>
+<td align="left">Should feet heights be automatically calculated or statically defined ? Enable this for static heights.</td>
+</tr>
+<tr>
+<td align="left">Feet height offset/ Fixed feet height</td>
+<td align="left">Depending on whether using auto calculate or static feet heights, this parameter offsets the overall value.</td>
+</tr>
+<tr>
+<td align="left">Feet alpha</td>
+<td align="left">A alpha between solved feet and default unsolved feet.</td>
+</tr>
+<tr>
+<td align="left">Min feet extension ratio</td>
+<td align="left">This is the minimum percent the feets can compress inwards relative to the leg pose.</td>
+</tr>
+<tr>
+<td align="left">Max feet extension ratio</td>
+<td align="left">This is the maximum percent the feets can extend outwards relative to the leg pose.</td>
+</tr>
+<tr>
+<td align="left">Feet slope offset multiplier</td>
+<td align="left">This is an extra offset of the feet z value depeding on the inclinations of the slopes.</td>
+</tr>
+<tr>
+<td align="left">Max feet lift height in UP axis</td>
+<td align="left">This is the maximum height the feet an lift in up direction. 0 means no limit.</td>
+</tr>
+<tr>
+<td align="left">Overrided trace radius (If capsule trace)</td>
+<td align="left">If its a value above 0, then the value is overrided as the new trace radius for this feet.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="feet-finger-array-dragondata_fingerdata">Feet Finger Array (DragonData_FingerData)</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Finger bone name</td>
+<td align="left">The finger tip bone</td>
+</tr>
+<tr>
+<td align="left">Trace size scale</td>
+<td align="left">The finger IK use their own traces and uses the trace up and down height. This is the scale the trace height by acting as a multiplier.</td>
+</tr>
+<tr>
+<td align="left">Trace offset</td>
+<td align="left">An extra vector offset of the finger trace location.</td>
+</tr>
+<tr>
+<td align="left">Is finger pointing backwards ?</td>
+<td align="left">This is incase the fingers are pointing backwards, such as the thumbs of certain animals.</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
@@ -810,7 +934,7 @@ are showing up in the viewport. If nothing is showing up, then there is atleast 
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../IK%20Solvers%20Info/z-inputstructs/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../spinesolver/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -819,11 +943,25 @@ are showing up in the viewport. If nothing is showing up, then there is atleast 
               <span class="md-footer__direction">
                 Previous
               </span>
-              Major Input Structs
+              Dragon Spine Solver
             </div>
           </div>
         </a>
       
+      
+        <a href="../../Tips%20%26%20Tricks/UsefulTips/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Super Useful Tips
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

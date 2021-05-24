@@ -742,6 +742,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z-inputstructs/" class="md-nav__link">
+        Major Input Structs
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -870,7 +882,7 @@
 </tr>
 <tr>
 <td align="left">Trace down height multiplier relative to velocity</td>
-<td align="left"></td>
+<td align="left">This is a curve parameter that multiplies with the "Trace height below feet" relative.</td>
 </tr>
 <tr>
 <td align="left">Use Anti-Channel Functionality</td>
@@ -944,7 +956,7 @@
 </tr>
 <tr>
 <td align="left">Interpolation multiplier relative to velocity curve</td>
-<td align="left">This is a curve that multiplies the total interpolation with itself. X-axis is velocity an Y-value is the interpolation multiplier. Tweak this for appropriate speed of interpolation between idle &amp; running state.</td>
+<td align="left">This is a curve that multiplies the total interpolation with itself. X-axis is velocity and Y-value is the interpolation multiplier. Tweak this for appropriate speed of interpolation between idle &amp; running state.</td>
 </tr>
 <tr>
 <td align="left">Enable complex but accurate foot placement method ?</td>
@@ -952,7 +964,7 @@
 </tr>
 <tr>
 <td align="left">Complex to simple foot placement transition relative to velocity</td>
-<td align="left">Only used if complex foot placement is used. Turn off complex feet and switch to simple feet IK during locomotion for the best of both methods for maximum stability. Y-axis 1 means complex and 0 means simple. X-axis is character velocity.</td>
+<td align="left">Only used if complex foot placement is used. Turn off complex feet and switch to simple feet IK during locomotion for the best of both methods for maximum stability. Y-axis 1 means complex and 0 means simple. X-axis is character velocity. Default value basically switches to complex</td>
 </tr>
 </tbody>
 </table>
@@ -1003,27 +1015,27 @@
 </tr>
 <tr>
 <td align="left">Use advanced 4-point feet rotation ?</td>
-<td align="left"></td>
+<td align="left">This is a new alternative method of rotating the feets. Instead of calculating from the normal data of the terrain, the rotation is calculated from approximating the results of the position of the 4 traces. 4-line traces around the feet. This helps rotate the feets even on sharp terrains more logically.</td>
 </tr>
 <tr>
 <td align="left">Enable foot lift limit ? (Uses the foot extension ratios in foot array)</td>
-<td align="left"></td>
+<td align="left">Enable the ability to limit the lift of the feets. This limit is controlled from the feet array.</td>
 </tr>
 <tr>
 <td align="left">Calculate toe/finger rotations ?</td>
-<td align="left"></td>
+<td align="left">Enable this to unlock and use the finger solving algorithm for each defined finger in the feet array.</td>
 </tr>
 <tr>
 <td align="left">Finger IK alpha relative to velocity</td>
-<td align="left"></td>
+<td align="left">This is a curve that multiplies the finger IK alpha with itself. X-axis is velocity and Y-value is the finger alpha multiplier. Default value basically disables finger IK during locomotion.</td>
 </tr>
 <tr>
 <td align="left">Minimum allowed leg IK angle</td>
-<td align="left"></td>
+<td align="left">This is the clamping of the leg IK accordingly</td>
 </tr>
 <tr>
 <td align="left">Work outside gameplay (for sequencer)</td>
-<td align="left"></td>
+<td align="left">Enable this for having the IK work even outside gameplay, such as in the editor during sequencer recordings.</td>
 </tr>
 </tbody>
 </table>
@@ -1038,7 +1050,7 @@
 <tbody>
 <tr>
 <td align="left">(optional) Foot x height offset</td>
-<td align="left"></td>
+<td align="left">These are optional feet height offsets which be comfortably and dynamically modified for your purpose, instead of creating programatically creating inputs and supplying it.</td>
 </tr>
 </tbody>
 </table>
@@ -1053,7 +1065,7 @@
 <tbody>
 <tr>
 <td align="left">LOD Treshold</td>
-<td align="left"></td>
+<td align="left">The maximum LOD the IK solver will work with. -1 means the solver will work at all LOD levels.</td>
 </tr>
 </tbody>
 </table>
