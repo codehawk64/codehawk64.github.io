@@ -35,7 +35,7 @@ This solver modifies the legs of the character to adjust them to the terrain. It
 |  Trace Height above feet  | Line trace height above the feet bones. Too high values will cause legs to react to ceilings and trees. Too low values will cause ik to not work on extreme slopes and steps. |
 |  Trace Height below feet  | Line trace height below the feet bones. Usually best kept 0. Too high values can lead to sticky IK which might be undesirable.  |
 | Global trace scale multiplier | Uniformly increases all trace related parameters. Increase this value if your mesh is super big by default and you are too lazy to increase all parameters one by one. I personally just use this rather than individually tweaking the trace heights.|
-| Trace down height multiplier relative to velocity | |
+| Trace down height multiplier relative to velocity | This is a curve parameter that multiplies with the "Trace height below feet" relative. |
 |  Use Anti-Channel Functionality  | Use the anti-channel in the solving logic. Use meshes with the anti-channel set to "block" to repel the traces from touching ceilings and closed spaces. Also useful when under stairs or narrow multi-storied buildings. Cover the ceilings and under stairs with anti-channel blocked meshes.  |
 
 
@@ -60,9 +60,9 @@ This solver modifies the legs of the character to adjust them to the terrain. It
 | Ignore shift logic | Shift logic is the smooth transition between solving and non-solving state. Such as if the feet traces are touching the ground. Ignoring shift logic will make transitions instant. |
 |  Ignore Rotation Interpolation  |  Enable this to completely bypass rotation interpolation and use default values! |
 | Ignore Location Interpolation | Enable this to completely bypass location interpolation and use default values!|
-| Interpolation multiplier relative to velocity curve | This is a curve that multiplies the total interpolation with itself. X-axis is velocity an Y-value is the interpolation multiplier. Tweak this for appropriate speed of interpolation between idle & running state. |
+| Interpolation multiplier relative to velocity curve | This is a curve that multiplies the total interpolation with itself. X-axis is velocity and Y-value is the interpolation multiplier. Tweak this for appropriate speed of interpolation between idle & running state. |
 | Enable complex but accurate foot placement method ? | Enabling this will 100% accurately place your feet position and rotation according to the terrain normal data without any gaps between the feet and terrain, but might sacrifice stability. Your leg poses might appear too "stylish" or "Jojo" if the terrain is too crazy due to over extending. Best to try it out and see if you if its good for your needs. |
-| Complex to simple foot placement transition relative to velocity | Only used if complex foot placement is used. Turn off complex feet and switch to simple feet IK during locomotion for the best of both methods for maximum stability. Y-axis 1 means complex and 0 means simple. X-axis is character velocity. |
+| Complex to simple foot placement transition relative to velocity | Only used if complex foot placement is used. Turn off complex feet and switch to simple feet IK during locomotion for the best of both methods for maximum stability. Y-axis 1 means complex and 0 means simple. X-axis is character velocity. Default value basically switches to complex |
 
 
 ### Basic Settings
@@ -78,21 +78,21 @@ This solver modifies the legs of the character to adjust them to the terrain. It
 | Character Up Direction Vector (Local space) |The up direction vector of the character in component space. 99% cases, this should not be altered. Only needed to alter on characters that do not follow the standard unreal character orientations. |
 | Dynamic forward direction vector (Local space) |The up direction vector of the character in component space. 99% cases, this should not be altered. Only needed to alter on characters that do not follow the standard unreal character orientations. |
 | Reference forward direction vector (Local space) |The up direction vector of the character in component space. 99% cases, this should not be altered. Only needed to alter on characters that do not follow the standard unreal character orientations. |
-| Use advanced 4-point feet rotation ? | |
-| Enable foot lift limit ? (Uses the foot extension ratios in foot array) ||
-| Calculate toe/finger rotations ? ||
-| Finger IK alpha relative to velocity ||
-| Minimum allowed leg IK angle | |
-| Work outside gameplay (for sequencer) ||
+| Use advanced 4-point feet rotation ? | This is a new alternative method of rotating the feets. Instead of calculating from the normal data of the terrain, the rotation is calculated from approximating the results of the position of the 4 traces. 4-line traces around the feet. This helps rotate the feets even on sharp terrains more logically.   |
+| Enable foot lift limit ? (Uses the foot extension ratios in foot array) | Enable the ability to limit the lift of the feets. This limit is controlled from the feet array. |
+| Calculate toe/finger rotations ? | Enable this to unlock and use the finger solving algorithm for each defined finger in the feet array. |
+| Finger IK alpha relative to velocity | This is a curve that multiplies the finger IK alpha with itself. X-axis is velocity and Y-value is the finger alpha multiplier. Default value basically disables finger IK during locomotion. |
+| Minimum allowed leg IK angle | This is the clamping of the leg IK accordingly  |
+| Work outside gameplay (for sequencer) | Enable this for having the IK work even outside gameplay, such as in the editor during sequencer recordings. |
 
 ### Dynamic foot offset
 
 | Parameter | Description                          |
 |:----------|:-------------------------------------|
-| (optional) Foot x height offset ||
+| (optional) Foot x height offset | These are optional feet height offsets which be comfortably and dynamically modified for your purpose, instead of creating programatically creating inputs and supplying it. |
 
 ### Performance
 
 | Parameter | Description                          |
 |:----------|:-------------------------------------|
-| LOD Treshold |  |
+| LOD Treshold | The maximum LOD the IK solver will work with. -1 means the solver will work at all LOD levels. |

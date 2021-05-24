@@ -665,6 +665,61 @@
     Table
   </a>
   
+    <nav class="md-nav" aria-label="Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-data" class="md-nav__link">
+    Input Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace-settings" class="md-nav__link">
+    Trace Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-curve-settings" class="md-nav__link">
+    Master Curve Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpolation-settings" class="md-nav__link">
+    Interpolation Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-settings" class="md-nav__link">
+    Basic Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-foot-offset" class="md-nav__link">
+    Dynamic foot offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    Performance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -682,6 +737,18 @@
     <li class="md-nav__item">
       <a href="../spinesolver/" class="md-nav__link">
         Dragon Spine Solver
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z-inputstructs/" class="md-nav__link">
+        Major Input Structs
       </a>
     </li>
   
@@ -753,6 +820,7 @@
 <p>This solver modifies the legs of the character to adjust them to the terrain. It typically works complimentary with the spine solver.</p>
 <h2 id="table">Table</h2>
 <hr />
+<h3 id="input-data">Input Data</h3>
 <table>
 <thead>
 <tr>
@@ -765,6 +833,17 @@
 <td align="left">dragon input data</td>
 <td align="left">Type the input bones used by the solver - pelvis,spine-start and feets</td>
 </tr>
+</tbody>
+</table>
+<h3 id="trace-settings">Trace Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">IK Type</td>
 <td align="left">Select foot ik type - two bone ik and one bone ik. 99.9% best to use the default two bone ik. One bone ik is only useful in case the animal has no knee bones, such as the infinity blade spiders.</td>
@@ -778,6 +857,68 @@
 <td align="left">If trace type is box or sphere, its radius is controlled using the Trace Radius</td>
 </tr>
 <tr>
+<td align="left">Trace_Channel</td>
+<td align="left">Trace channel used by the solver traces. Recommended to create a new dedicated trace channel for the ik through project settings.</td>
+</tr>
+<tr>
+<td align="left">Anti_Trace_Channel</td>
+<td align="left">Channel used for the trace repelling anti-channel process.</td>
+</tr>
+<tr>
+<td align="left">Fps treshold for interpolation</td>
+<td align="left">If frame rate falls below this treshold, then interpolation is disabled for instant results as well as better overall performance.</td>
+</tr>
+<tr>
+<td align="left">Trace Height above feet</td>
+<td align="left">Line trace height above the feet bones. Too high values will cause legs to react to ceilings and trees. Too low values will cause ik to not work on extreme slopes and steps.</td>
+</tr>
+<tr>
+<td align="left">Trace Height below feet</td>
+<td align="left">Line trace height below the feet bones. Usually best kept 0. Too high values can lead to sticky IK which might be undesirable.</td>
+</tr>
+<tr>
+<td align="left">Global trace scale multiplier</td>
+<td align="left">Uniformly increases all trace related parameters. Increase this value if your mesh is super big by default and you are too lazy to increase all parameters one by one. I personally just use this rather than individually tweaking the trace heights.</td>
+</tr>
+<tr>
+<td align="left">Trace down height multiplier relative to velocity</td>
+<td align="left">This is a curve parameter that multiplies with the "Trace height below feet" relative.</td>
+</tr>
+<tr>
+<td align="left">Use Anti-Channel Functionality</td>
+<td align="left">Use the anti-channel in the solving logic. Use meshes with the anti-channel set to "block" to repel the traces from touching ceilings and closed spaces. Also useful when under stairs or narrow multi-storied buildings. Cover the ceilings and under stairs with anti-channel blocked meshes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="master-curve-settings">Master Curve Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Use custom velocity instead of automatic character velocity for curves ?</td>
+<td align="left">Enable this to use your custom player velocity instead of automatically getting it from the parent character class movement component. This velocity value will be used to drive the curve parameters that depend on velocity.</td>
+</tr>
+<tr>
+<td align="left">Custom curve velocity</td>
+<td align="left">This is used as the velocity if "Use custom velocity..." parameter is enabled.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interpolation-settings">Interpolation Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td align="left">Location Interpolation Type</td>
 <td align="left">Select the feet location interpolation method. Default uses the divisive location interpolation method, which provides optimal smoothness and speed of solving. Optionally can use the legacy method of interpolation.</td>
 </tr>
@@ -786,16 +927,8 @@
 <td align="left">Select the feet rotation interpolation method. Default uses the divisive location interpolation method, which provides optimal smoothness and speed of solving. Optionally can use the legacy method of interpolation.</td>
 </tr>
 <tr>
-<td align="left">Automatic leg Make</td>
-<td align="left">Parameter to choose between automatic feet bone detection or manual method. If enabled, solvers only uses the feet bones, and automatically assumes the next 2 parent bones as knees and thighs. If disabled, solvers uses the feet bones, knee bones and thigh bones typed in the feet array. If disabled, all bones need to be valid. Any invalid bones will not activate the ik. Very useful to keep it disabled on DAZ rigs and certain animal characters, where the thigh-knee-foot are not in a straight linear hierarchy.</td>
-</tr>
-<tr>
-<td align="left">Use (optional ref pose) as reference for foot rotation ?</td>
-<td align="left">If enabled, the rotation of the feet will be relative to its current animation. If disabled, the absolute reference rotation of the feet will be used instead, ensuring always aligned feets.</td>
-</tr>
-<tr>
-<td align="left">Enable Solver</td>
-<td align="left">Toggle this parameter to turn on/off ik. Example use case : Disable it when character is jumping or flying in the air.</td>
+<td align="left">Interpolate only on legs Z axis ?</td>
+<td align="left">If enabled, interpolation is strictly on the vertical axis of the feets. If disabled, interpolation is in all axis. Might create a delayed feet response in low frame rates if interpolating in all 3 axis.</td>
 </tr>
 <tr>
 <td align="left">Shift Speed</td>
@@ -810,40 +943,55 @@
 <td align="left">Controls the feet interpolation rotation speed.</td>
 </tr>
 <tr>
-<td align="left">Trace_Channel</td>
-<td align="left">Trace channel used by the solver traces. Recommended to create a new dedicated trace channel for the ik through project settings.</td>
+<td align="left">Ignore shift logic</td>
+<td align="left">Shift logic is the smooth transition between solving and non-solving state. Such as if the feet traces are touching the ground. Ignoring shift logic will make transitions instant.</td>
 </tr>
 <tr>
-<td align="left">Anti_Trace_Channel</td>
-<td align="left">Channel used for the trace repelling anti-channel process.</td>
-</tr>
-<tr>
-<td align="left">Trace Height above feet</td>
-<td align="left">Line trace height above the feet bones. Too high values will cause legs to react to ceilings and trees. Too low values will cause ik to not work on extreme slopes and steps.</td>
-</tr>
-<tr>
-<td align="left">Trace Height below feet</td>
-<td align="left">Line trace height below the feet bones. Usually best kept 0. Too high values can lead to sticky IK which might be undesirable.</td>
-</tr>
-<tr>
-<td align="left">Use Anti-Channel Functionality</td>
-<td align="left">Use the anti-channel in the solving logic. Use meshes with the anti-channel set to "block" to repel the traces from touching ceilings and closed spaces. Also useful when under stairs or narrow multi-storied buildings. Cover the ceilings and under stairs with anti-channel blocked meshes.</td>
-</tr>
-<tr>
-<td align="left">Ignore Rotation Lerping</td>
+<td align="left">Ignore Rotation Interpolation</td>
 <td align="left">Enable this to completely bypass rotation interpolation and use default values!</td>
 </tr>
 <tr>
-<td align="left">Ignore Location Lerping</td>
-<td align="left">nable this to completely bypass location interpolation and use default values!</td>
+<td align="left">Ignore Location Interpolation</td>
+<td align="left">Enable this to completely bypass location interpolation and use default values!</td>
+</tr>
+<tr>
+<td align="left">Interpolation multiplier relative to velocity curve</td>
+<td align="left">This is a curve that multiplies the total interpolation with itself. X-axis is velocity and Y-value is the interpolation multiplier. Tweak this for appropriate speed of interpolation between idle &amp; running state.</td>
+</tr>
+<tr>
+<td align="left">Enable complex but accurate foot placement method ?</td>
+<td align="left">Enabling this will 100% accurately place your feet position and rotation according to the terrain normal data without any gaps between the feet and terrain, but might sacrifice stability. Your leg poses might appear too "stylish" or "Jojo" if the terrain is too crazy due to over extending. Best to try it out and see if you if its good for your needs.</td>
+</tr>
+<tr>
+<td align="left">Complex to simple foot placement transition relative to velocity</td>
+<td align="left">Only used if complex foot placement is used. Turn off complex feet and switch to simple feet IK during locomotion for the best of both methods for maximum stability. Y-axis 1 means complex and 0 means simple. X-axis is character velocity. Default value basically switches to complex</td>
+</tr>
+</tbody>
+</table>
+<h3 id="basic-settings">Basic Settings</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Automatic foot-knee-thigh detection</td>
+<td align="left">Parameter to choose between automatic feet bone detection or manual method. If enabled, solvers only uses the feet bones, and automatically assumes the next 2 parent bones as knees and thighs. If disabled, solvers uses the feet bones, knee bones and thigh bones typed in the feet array. If disabled, all bones need to be valid. Any invalid bones will not activate the ik. Very useful to keep it disabled on DAZ rigs and certain animal characters, where the thigh-knee-foot are not in a straight linear hierarchy.</td>
+</tr>
+<tr>
+<td align="left">Use (optional ref pose) as reference for foot rotation ?</td>
+<td align="left">If enabled, the rotation of the feet will be relative to its current animation. If disabled, the absolute reference rotation of the feet will be used instead, ensuring always aligned feets.</td>
+</tr>
+<tr>
+<td align="left">Enable Solver</td>
+<td align="left">Toggle this parameter to turn on/off ik. Example use case : Disable it when character is jumping or flying in the air.</td>
 </tr>
 <tr>
 <td align="left">Should Solving Rotate Feet ?</td>
 <td align="left">Disable this to ignore feet rotaion and use default animated rotation.</td>
-</tr>
-<tr>
-<td align="left">Display Line Trace ?</td>
-<td align="left">Enable this to render the line traces in the animgraph viewport.</td>
 </tr>
 <tr>
 <td align="left">Enable Foot Pitch</td>
@@ -858,8 +1006,66 @@
 <td align="left">The up direction vector of the character in component space. 99% cases, this should not be altered. Only needed to alter on characters that do not follow the standard unreal character orientations.</td>
 </tr>
 <tr>
-<td align="left">(optional) Foot x Height offset</td>
-<td align="left">Extra feet height offsets that can be altered during gameplay.</td>
+<td align="left">Dynamic forward direction vector (Local space)</td>
+<td align="left">The up direction vector of the character in component space. 99% cases, this should not be altered. Only needed to alter on characters that do not follow the standard unreal character orientations.</td>
+</tr>
+<tr>
+<td align="left">Reference forward direction vector (Local space)</td>
+<td align="left">The up direction vector of the character in component space. 99% cases, this should not be altered. Only needed to alter on characters that do not follow the standard unreal character orientations.</td>
+</tr>
+<tr>
+<td align="left">Use advanced 4-point feet rotation ?</td>
+<td align="left">This is a new alternative method of rotating the feets. Instead of calculating from the normal data of the terrain, the rotation is calculated from approximating the results of the position of the 4 traces. 4-line traces around the feet. This helps rotate the feets even on sharp terrains more logically.</td>
+</tr>
+<tr>
+<td align="left">Enable foot lift limit ? (Uses the foot extension ratios in foot array)</td>
+<td align="left">Enable the ability to limit the lift of the feets. This limit is controlled from the feet array.</td>
+</tr>
+<tr>
+<td align="left">Calculate toe/finger rotations ?</td>
+<td align="left">Enable this to unlock and use the finger solving algorithm for each defined finger in the feet array.</td>
+</tr>
+<tr>
+<td align="left">Finger IK alpha relative to velocity</td>
+<td align="left">This is a curve that multiplies the finger IK alpha with itself. X-axis is velocity and Y-value is the finger alpha multiplier. Default value basically disables finger IK during locomotion.</td>
+</tr>
+<tr>
+<td align="left">Minimum allowed leg IK angle</td>
+<td align="left">This is the clamping of the leg IK accordingly</td>
+</tr>
+<tr>
+<td align="left">Work outside gameplay (for sequencer)</td>
+<td align="left">Enable this for having the IK work even outside gameplay, such as in the editor during sequencer recordings.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dynamic-foot-offset">Dynamic foot offset</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">(optional) Foot x height offset</td>
+<td align="left">These are optional feet height offsets which be comfortably and dynamically modified for your purpose, instead of creating programatically creating inputs and supplying it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance">Performance</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LOD Treshold</td>
+<td align="left">The maximum LOD the IK solver will work with. -1 means the solver will work at all LOD levels.</td>
 </tr>
 </tbody>
 </table>
