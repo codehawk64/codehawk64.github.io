@@ -42,3 +42,11 @@ For characters like horses which has straight vertical leg poses, the direction 
 
 
 ---
+
+## Replacing the IK of ALS projects with DragonIK
+
+---
+
+<div class="video-wrapper">
+  <iframe width="480" height="320" src="https://www.youtube.com/embed/ATNV7BL0cgs" frameborder="0" allowfullscreen></iframe>
+</div>

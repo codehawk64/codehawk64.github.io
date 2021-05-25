@@ -5,7 +5,7 @@ parent: Tutorials
 nav_order: 1
 ---
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif) ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif) 
+![Alt Text](https://media.giphy.com/media/Gwm4riW4GIWAKTytQW/giphy.gif) ![Alt Text](https://media.giphy.com/media/Q7pfJzPXtKNbttF0UA/giphy.gif) 
 
 # Introduction to terrain and foot placement IK solving
 

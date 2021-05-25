@@ -23,6 +23,17 @@ is a human, dog, snake, dragon or spider.
 
 ---
 
+# Megagrant Recipient
+
+
+![Placeholder](/assets/images/epic_megagrants_2.PNG){ align=left }
+
+Proud to announce the DragonIK project is a recipient of the Epic Megagrants! The funds helps me to add more awesome features into the
+plugin, focus on it in a more full-time manner and keeping the price low for general affordability.
+
+
+---
+
 ## Features
 
 * Extreme ease and simplicity of its workflow.
