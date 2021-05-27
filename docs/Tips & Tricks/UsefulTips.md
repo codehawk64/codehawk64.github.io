@@ -23,6 +23,21 @@ The IK trace channel of your terrains and platforms need to be set to block to l
 {: .fs-3 .ls-5 .text-mono .code-example }
 
 
+## VR-IK solving
+
+<div class="video-wrapper">
+  <iframe width="480" height="320" src="https://www.youtube.com/embed/5AIGRA9SEEU" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+More information will be added later on how to setup it up, but meanwhile here is the link to the example project.
+
+
+
+
+<a href="https://github.com/codehawk64/DragonIK-VRIK"> 3-Point VR solving example project.</a>
+
+
 
 
 ## Check if line traces are drawn in the animation blueprint viewport
