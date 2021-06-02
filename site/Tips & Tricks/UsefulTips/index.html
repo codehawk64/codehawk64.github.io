@@ -734,6 +734,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vr-ik-solving" class="md-nav__link">
+    VR-IK solving
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#check-if-line-traces-are-drawn-in-the-animation-blueprint-viewport" class="md-nav__link">
     Check if line traces are drawn in the animation blueprint viewport
   </a>
@@ -751,6 +758,33 @@
   <a href="#replacing-the-ik-of-als-projects-with-dragonik" class="md-nav__link">
     Replacing the IK of ALS projects with DragonIK
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-compiling-the-plugin-bonus-info-on-how-to-make-your-existing-plugin-work-for-ue5" class="md-nav__link">
+    Re-compiling the plugin (Bonus info on how to make your existing plugin work for UE5)
+  </a>
+  
+    <nav class="md-nav" aria-label="Re-compiling the plugin (Bonus info on how to make your existing plugin work for UE5)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-basic-preparation" class="md-nav__link">
+    1. Basic Preparation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ue4-ue5-specific-modification" class="md-nav__link">
+    2. UE4 -&gt; UE5 specific Modification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -789,6 +823,13 @@
 <img src="http://codehawk64.github.io/assets/images/custom_trace2.PNG" ></p>
 <p class="fs-3 ls-5 text-mono code-example">Create a custom trace channel that can be used by your IK. Depending on the project type, you can either set the new trace channel to ignore or block by default.
 The IK trace channel of your terrains and platforms need to be set to block to let the IK detect them.</p>
+<h2 id="vr-ik-solving">VR-IK solving</h2>
+<div class="video-wrapper">
+  <iframe width="480" height="320" src="https://www.youtube.com/embed/5AIGRA9SEEU" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>More information will be added later on how to setup it up, but meanwhile here is the link to the example project.</p>
+<p><a href="https://github.com/codehawk64/DragonIK-VRIK"> 3-Point VR solving example project.</a></p>
 <h2 id="check-if-line-traces-are-drawn-in-the-animation-blueprint-viewport">Check if line traces are drawn in the animation blueprint viewport</h2>
 <hr />
 <p>If your character feels like its not reacting to the terrains, check the animation blueprint viewport. Click on any of your solvers and see if the red lines and/or other widgets
@@ -802,6 +843,38 @@ are showing up in the viewport. If nothing is showing up, then there is atleast 
 <div class="video-wrapper">
   <iframe width="480" height="320" src="https://www.youtube.com/embed/ATNV7BL0cgs" frameborder="0" allowfullscreen></iframe>
 </div>
+
+<h2 id="re-compiling-the-plugin-bonus-info-on-how-to-make-your-existing-plugin-work-for-ue5">Re-compiling the plugin (Bonus info on how to make your existing plugin work for UE5)</h2>
+<h4 id="1-basic-preparation">1. Basic Preparation</h4>
+<ul>
+<li>
+<p>Create a blank empty C++ project for UE5. I named it as "UnrealFiveCPlus".</p>
+</li>
+<li>
+<p>Copy your 4.26 plugin from the engine marketplace folder. The directory structure looks like this :</p>
+</li>
+</ul>
+<p>C:\Program Files (x86)\Epic Games\UE_4.26\Engine\Plugins\Marketplace\DragonIK</p>
+<p>then paste it inside the "Plugins" folder of your new blank C++ project. If no folder for Plugins exist, then create one.</p>
+<ul>
+<li>
+<p>After its pasted, right click on the .uproject of your C++ project. Click "generate visual studio files". Only after doing this step
+will the plugin be visible later in visual studio.</p>
+</li>
+<li>
+<p>Now open your project in visual studio. Open the ".uplugin" file in the root folder of DragonIK and rename 4.26.2 to 5.0. Build your project "UnrealFiveCPlus" or whatever you have named it. Since nothing is changed,
+errors will show up.</p>
+</li>
+</ul>
+<h4 id="2-ue4-ue5-specific-modification">2. UE4 -&gt; UE5 specific Modification</h4>
+<ul>
+<li>First step, close all files unrelated to the plugin in VS. Then selectively open all DragonIK related files present in the Source folder.</li>
+<li>Once they are all opened, replace all references of FWidget in the plugin to the new UE:Widget using the "All open documents" option so its done instantly. More than 20 references will be updated. Do a "Save All" now.</li>
+<li>Similarly replace all references of "SkeletalMesh-&gt;Skeleton" into "SkeletalMesh-&gt;GetSkeleton()". Save all.</li>
+<li>Do a rebuild of your project. Now most errors are gone except an unresolved external symbol error.</li>
+<li>This external symbol error is due to an additional new module UE5 introduced called "EditorFramework". Go to DragonIKPluginEditor.Build.cs and add "EditorFramework"
+under the private dependency module names of the Editor target type. A simple tip is to add "EditorFramework" right next to the "Persona" module.</li>
+</ul>
                 
                   
                 
