@@ -869,7 +869,7 @@ errors will show up.</p>
 <h4 id="2-ue4-ue5-specific-modification">2. UE4 -&gt; UE5 specific Modification</h4>
 <ul>
 <li>First step, close all files unrelated to the plugin in VS. Then selectively open all DragonIK related files present in the Source folder.</li>
-<li>Once they are all opened, replace all references of FWidget in the plugin to the new UE:Widget using the "All open documents" option so its done instantly. More than 20 references will be updated. Do a "Save All" now.</li>
+<li>Once they are all opened, replace all references of "FWidget" in the plugin to the new "UE::Widget" using the "All open documents" replace text option so its done instantly. More than 20 references will be updated. Do a "Save All" now.</li>
 <li>Similarly replace all references of "SkeletalMesh-&gt;Skeleton" into "SkeletalMesh-&gt;GetSkeleton()". Save all.</li>
 <li>Do a rebuild of your project. Now most errors are gone except an unresolved external symbol error.</li>
 <li>This external symbol error is due to an additional new module UE5 introduced called "EditorFramework". Go to DragonIKPluginEditor.Build.cs and add "EditorFramework"
